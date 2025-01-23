@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHelper72 - Поиск пропавших животных</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-GZT3jR52xQd/dJv3+T8LJWzH6i26t8F+gJgJ/p8d+yI="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJx1q1fT/e9Uo8z1Bs3zzJrwEqbs="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-paw"></i> PetHelper72</h1>
+            <nav>
+                <a href="#advice">Советы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <div class="container">
+            <h2>Найдите своего потерянного друга!</h2>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Поиск животных...">
+                <select id="speciesSelect">
+                    <option value="">Все виды</option>
+                    <option value="dog">Собака</option>
+                    <option value="cat">Кошка</option>
+                    <option value="bird">Птица</option>
+                    <option value="other">Другое</option>
+                </select>
+                <button id="searchBtn">Поиск</button>
+            </div>
+             <div class="filters">
+              <input type="date" id="datePicker" />
+           </div>
+        </div>
+    </section>
+
+    <main class="listings-section">
+      <div class="container">
+        <div>
+         <h2>Добавить Новое Объявление</h2>
+         <form id="addListingForm">
+           <label for="title">Заголовок</label>
+           <input type="text" id="title" required>
+            <label for="species">Вид</label>
+           <select id="species" required>
+               <option value="">Выбрать Вид</option>
+              <option value="dog">Собака</option>
+               <option value="cat">Кошка</option>
+               <option value="bird">Птица</option>
+               <option value="other">Другое</option>
+           </select>
+           <label for="breed">Порода</label>
+           <input type="text" id="breed">
+           <label for="description">Описание</label>
+           <textarea id="description" required></textarea>
+               <label for="image">Изображение</label>
+               <div class="image-upload-container">
+                  <input type="file" id="image" accept="image/*" required>
+                   <p>Перетащите изображение сюда или нажмите, чтобы выбрать файл</p>
+                    <img id="previewImage" style="display:none;" src="" alt="Preview" />
+
+                </div>
+            <label for="location">Местоположение (Район, Улица)</label>
+           <input type="text" id="location" placeholder="например: Центральный, ул. Ленина" required>
+              <label for="date">Дата</label>
+              <input type="date" id="date" required>
+           <button type="submit">Добавить Объявление</button>
+          </form>
+       </div>
+        <div>
+           <h2>Объявления</h2>
+           <div id="listingsContainer" class="listings-grid">
+             </div>
+        </div>
+     </div>
+     <div class="container">
+      <div id="map" style="height: 300px;"></div>
+     </div>
+ </main>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-content">
+        </div>
+      </div>
+    </div>
+
+    <section class="advice-section" id="advice">
+      <div class="container">
+          <h2>Советы владельцам животных</h2>
+          <div class="advice-content">
+            <div class="advice-item">
+               <h3>Что делать, если ваше животное потерялось</h3>
+               <ul>
+                 <li>Немедленно обыщите окрестности.</li>
+                 <li>Свяжитесь с местными приютами и ветеринарами.</li>
+                 <li>Создайте и распространите объявления о пропаже.</li>
+                 <li>Используйте социальные сети для распространения информации.</li>
+                 <li>Используйте этот сайт :)</li>
+               </ul>
+              </div>
+              <div class="advice-item">
+                <h3>Что делать, если вы нашли потерянное животное</h3>
+                 <ul>
+                   <li>Отнесите животное к ветеринару для сканирования на микрочип.</li>
+                   <li>Если нет чипа, опубликуйте информацию в социальных сетях и на сайтах.</li>
+                   <li>Держите животное в безопасном месте.</li>
+                   <li>Проверьте наличие объявлений о пропаже (на этом сайте тоже :))</li>
+                  </ul>
+             </div>
+          </div>
+      </div>
+  </section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 PetHelper72. Все права защищены.</p>
+        </div>
+    </footer>
+     <script src="https://kit.fontawesome.com/f4b75528e9.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
